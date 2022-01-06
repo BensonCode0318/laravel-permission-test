@@ -16,7 +16,7 @@ class PostsSeeder extends Seeder
     {
         Post::create([
             'title'    => '科技新聞',
-            'content'  => '這是一個科技版新聞',
+            'content'  => '這是一個科技新聞',
             'field_id' => 1,
             'user_id'  => 1,
         ]);
@@ -33,6 +33,13 @@ class PostsSeeder extends Seeder
             'content' => '這是一個娛樂新聞',
             'field_id' => 3,
             'user_id'  => 3,
+        ]);
+
+        Post::create([
+            'title'    => '科技新聞',
+            'content'  => '這是第二個科技新聞',
+            'field_id' => 1,
+            'user_id'  => 1,
         ]);
     }
 }

@@ -17,6 +17,7 @@ class RolesSeeder extends Seeder
         Role::create([
             'name'        => '一般使用者',
             'permissions' => [
+                'list_post' => true,
                 'read_post' => true,
             ]
         ]);
