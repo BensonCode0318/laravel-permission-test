@@ -15,13 +15,13 @@ class RolesSeeder extends Seeder
     public function run()
     {
         Role::create([
-            'name' => '一般使用者',
+            'name'        => '一般使用者',
             'permissions' => [
                 'read_post' => true,
             ]
         ]);
         Role::create([
-            'name' => '編輯者',
+            'name'        => '編輯者',
             'permissions' => [
                 'create_post' => true,
                 'update_post' => true,
