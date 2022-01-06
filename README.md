@@ -7,6 +7,44 @@
 * PHP 7.3
 * MySQL 5.7
 
+## Setup 
+```
+composer i
+
+php artisan key:generate
+
+// 生成jwt key
+php artisan jwt:secret
+
+php artisan migrate --seed
+```
+
+## 權限登記(預設)
+* 一般使用者
+  * list_post
+  * read_post
+* 編輯者
+  * create_post
+  * update_post
+  * delete_post
+
+## Testing user account & pwd
+* user01 (field_id = 1)
+  * account: test01
+  * pwd: 123456
+  * permission:
+    * 一般使用者
+    * 編輯者
+* user02 (field_id = 2)
+  * account: test02
+  * pwd: 123456
+  * permission:
+    * 一般使用者
+* user03 (field_id = 3)
+  * account: test03
+  * pwd: 123456
+  * permission:
+    * 一般使用者
 ## 權限想法說明
 因需求中有提到權限有以下要求：
 * 未登入使用者無法使用
