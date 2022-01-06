@@ -1,26 +1,28 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-# Laravel 8 Restful API example
+# Wasa Team pretest project
 
 ## Environment
-* Laravel 8.54
+* Laravel 8.55
 * PHP 7.3
 * MySQL 5.7
 
-## Features
-* Controller-Service-Repository-Model pattern
-* JWT & refresh token
-* Formatted response & exception response
-* Resource & Exception Module
-* Request_id for tracking user action history
-* Use sentry for error tracking
-* Login & Logout example
-* A simple CRUD example
+## 權限想法說明
+因需求中有提到權限有以下要求：
+* 未登入使用者無法使用
+* 不同權限角色使用者權限不同
+* 使用者無法使用或者查看其他領域的資料
 
-## Include
-* [JWT](https://github.com/tymondesigns/jwt-auth) for authentication
-* [Sentry](https://docs.sentry.io/) for error tracking
-* [Slack](https://slack.com/intl/zh-tw/) for notify
+故因為希望在Service都能維持較單一的指責，所以將所有需要驗證權限的相關動作都擺在middleware來進行處理，主要為以下三個middleware：
+* RefreshToken
+  * 實作auth-jwt套件，並撰寫完整的驗證流程，使用者如果沒有登入獲取的token，便無法繼續動作。
+  * 結合Refresh token的機制，使得使用者token到期(但存活期還未超過)的時候，可以無感的替換token。
+* AuthUserPermission
+  * 透過user_roles 和roles 兩張table，透過關聯可將使用者擁有的全部權限角色與其權限調用出來，在這去與route 的name做比較，達到權限管理的目的。
+  * 後續當新的權限出來的時候，只需維護user_roles 與roles兩張table，減少更動程式邏輯的機會，降低維護成本。
+* CheckUserField
+  * 透過傳進來的field_id來判斷該使用者有沒有讀取這篇文章的權限。
+  * create與index的時候沒有傳入id，但可透過auth取得user的資料，將限制該領域的使用者只能新增or查詢同領域的資料，降低造成錯誤的機會。
 
 
 
