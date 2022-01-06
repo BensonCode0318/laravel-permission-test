@@ -60,4 +60,22 @@ class User extends Authenticatable implements JWTSubject
     {
         $this->attributes['password'] = Hash::make($value);
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'user_roles', 'user_id', 'role_id');
+    }
+
+    /**
+     * check user access
+     */
+    public function hasAccess($permission)
+    {
+        foreach ($this->roles as $role) {
+            if ($role->hasAccess($permission)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

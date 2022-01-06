@@ -16,4 +16,9 @@ class Role extends Model
     protected $casts = [
         'permissions' => 'array',
     ];
+
+    public function hasAccess($permission)
+    {
+        return isset($this->permissions[$permission]) ? true : false;
+    }
 }
