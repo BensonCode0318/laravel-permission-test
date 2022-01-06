@@ -45,6 +45,11 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+
+        'role' => [
+            \App\Http\Middleware\RefreshToken::class,
+            \App\Http\Middleware\AuthUserPermission::class,
+        ],
     ];
 
     /**
@@ -65,5 +70,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'auth.jwt' => \App\Http\Middleware\RefreshToken::class,
+        'check.field' => \App\Http\Middleware\CheckUserField::class,
     ];
 }
