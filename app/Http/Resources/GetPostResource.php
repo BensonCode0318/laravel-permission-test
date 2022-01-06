@@ -3,13 +3,14 @@
 
 namespace App\Http\Resources;
 
-class GetUserResource extends BaseJsonResource
+class GetPostResource extends BaseJsonResource
 {
     public function toArray($request)
     {
         return [
             'id'      => $this['id'],
-            'account' => $this['account'],
+            'title'   => $this['title'],
+            'content' => $this['content'],
         ];
     }
 }

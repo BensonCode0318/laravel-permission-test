@@ -10,32 +10,22 @@ use Throwable;
  *
  * @package App\Exceptions
  */
-class AuthException extends BaseException
+class PostException extends BaseException
 {
     private $errorConfig = [
-        '901' => [
+        '30001' => [
             'type'    => ExceptionConstant::FAILURE,
-            'message' => '驗證異常，請重新登入',
+            'message' => '新增文章失敗',
             'sentry'  => false,
         ],
-        '902' => [
+        '30002' => [
             'type'    => ExceptionConstant::FAILURE,
-            'message' => '驗證過期，請重新登入。',
+            'message' => '該文章不存在，請重新確認。',
             'sentry'  => false,
         ],
-        '903' => [
+        '30003' => [
             'type'    => ExceptionConstant::FAILURE,
-            'message' => '未帶Token，請重新登入',
-            'sentry'  => false,
-        ],
-        '904' => [
-            'type'    => ExceptionConstant::FAILURE,
-            'message' => '該使用者沒有使用權限，請重新確認。',
-            'sentry'  => false,
-        ],
-        '905' => [
-            'type'    => ExceptionConstant::FAILURE,
-            'message' => '該使用者沒有這個領域的權限，請重試。',
+            'message' => '文章更新失敗。',
             'sentry'  => false,
         ]
     ];
