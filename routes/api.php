@@ -17,12 +17,5 @@ Route::namespace('App\Http\Controllers')->group(function () {
             Route::put('/posts/{post_id}', 'PostController@update')->name('update_post');
             Route::delete('/posts/{post_id}', 'PostController@delete')->name('delete_post');
         });
-
-        // users
-        Route::get('/users', 'UserController@index');
-        Route::get('/users/{user_id}', 'UserController@show');
-        Route::post('/users', 'UserController@create');
-        Route::put('/users/{user_id}', 'UserController@update');
-        Route::delete('/users/{user_id}', 'UserController@delete');
     });
 });
