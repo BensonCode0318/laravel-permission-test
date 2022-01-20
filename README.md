@@ -1,6 +1,6 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-# Wasa Team pretest project
+# laravel-permission-test project
 
 ## Environment
 * Laravel 8.55
@@ -46,7 +46,7 @@ php artisan migrate --seed
   * permission:
     * 一般使用者
 ## 權限想法說明
-因需求中有提到權限有以下要求：
+為了滿足以下要求
 * 未登入使用者無法使用
 * 不同權限角色使用者權限不同
 * 使用者無法使用或者查看其他領域的資料
